@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/SignOut"
+        android:title="SignOut"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/History"
+        android:title="History"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/Settings"
+        android:title="Settings"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/Payments"
+        android:title="Payments"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+</menu>
