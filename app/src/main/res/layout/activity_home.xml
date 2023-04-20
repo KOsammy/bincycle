@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="4dp"
+            android:background="@color/purple_500"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight = "35" />
+
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+
+
+            <LinearLayout
+                android:id="@+id/first"
+                android:layout_width="match_parent"
+                android:background="@drawable/grad_bg"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="bottom"
+                android:visibility="visible">
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/select_bin_size"
+                    android:textStyle="normal"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="sans-serif-condensed"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textAlignment="center"/>
+
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <android.widget.LinearLayout
+                    android:id="@+id/select1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="#f6f6f6">
+
+
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/small_bin"
+                        android:padding="1dp"
+                        android:contentDescription="@string/todo">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"
+                        android:text="Small bin GH₵4.00"
+                        android:textSize="20dp"
+                        android:padding="10dp"/>
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add1"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/fun"
+                        android:text="@string/Add"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+
+                    <EditText
+                        android:id="@+id/value1"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="25dp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:background="@color/white"
+                        android:textColor="@color/black"
+                        android:autofillHints="0"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sub1"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:background="@drawable/fun"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+
+                </android.widget.LinearLayout>
+
+                <android.widget.LinearLayout
+                    android:id="@+id/select2"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/small_bin"
+                        android:padding="1dp">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"
+                        android:text="Medium Bin GH₵7.00"
+                        android:textSize="20dp"
+                        android:padding="10dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add2"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="5dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/fun"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+
+                    <EditText
+                        android:id="@+id/value2"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:inputType="number"
+                        android:textAlignment="center"
+                        android:background="#f6f6f6"
+                        android:textColor="@color/black"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sub2"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/fun"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+                </android.widget.LinearLayout>
+
+                <android.widget.LinearLayout
+                    android:id="@+id/select3"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:background="#f6f6f6">
+
+                    <ImageView
+                        android:layout_width="70dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/small_bin"
+                        android:padding="1dp">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:textColor="@color/black"
+                        android:text="Large Bin GH₵12.00"
+                        android:textSize="20dp"
+                        android:padding="10dp"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/add3"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/fun"
+                        android:text="+"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+
+                    <EditText
+                        android:id="@+id/value3"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="25dp"
+                        android:textAlignment="center"
+                        android:inputType="number"
+                        android:background="@color/white"
+                        android:textColor="@color/black"/>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/sub3"
+                        android:layout_width="40dp"
+                        android:layout_height="55dp"
+                        android:padding="10dp"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/fun"
+                        android:text="-"
+                        android:textColor="@color/black"
+                        android:textSize="30sp"/>
+                </android.widget.LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/confirm"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/btn_bg"
+                    android:layout_marginLeft="60dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:textAllCaps="false"
+                    android:textSize="20sp"
+                    android:text="Confirm"/>
+
+                 </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/request"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/grad_bg"
+                android:orientation="vertical">
+
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Request Rider"
+                    android:layout_margin="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="15sp">
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:orientation="horizontal"
+                        android:background="#f6f6f6">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/baseline_account_circle_24">
+
+                        </de.hdodenhof.circleimageview.CircleImageView>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/request_btn"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:background="@drawable/btn_bg"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="80dp"
+                            android:layout_marginRight="80dp"
+                            android:layout_marginBottom="10dp"
+                            android:textColor="@color/white"
+                            android:layout_gravity="bottom"
+                            android:textAllCaps="false"
+                            android:text="Request Rider"
+                            android:textSize="20sp">
+
+                        </androidx.appcompat.widget.AppCompatButton>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/nav_home"
+        app:menu="@menu/home_nav"/>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+</FrameLayout>

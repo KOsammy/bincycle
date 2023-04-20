@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">bincycle</string>
+    <string name="_233">+233</string>
+    <string name="next">Next</string>
+    <string name="_244444444">244444444</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+    <string name="enter_your_username">Enter Your Username</string>
+    <string name="we_will_send_you_a_one_time_otp_on_this_mobile_number">We will send you a one time OTP on this mobile number</string>
+    <string name="user_registration_verification">User Registration/Verification</string>
+    <string name="re_send_opt">Re-Send OPT</string>
+    <string name="couldn_t_retrieve_code">Couldn\'t retrieve code?</string>
+    <string name="enter_your_verification_code">Enter Your Verification Code</string>
+    <string name="otp_vreification">OTP Vreification</string>
+    <string name="otp_verification" />
+    <string name="verify">OTP Verification</string>
+    <string name="title_activity_home">Home</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="select_bin_size">Select Bin size</string>
+    <string name="todo">TODO</string>
+    <string name="small_bin_16_02gh">Small Bin 16.02gh</string>
+    <string name="Add">+</string>
+    <string name="cent_sign">&#x00A2;</string>
+</resources>

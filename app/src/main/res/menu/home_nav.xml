@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<group android:checkableBehavior="single">
+    <item android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home_ic"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+    <item android:id="@+id/History"
+        android:title="History"
+        android:icon="@drawable/history"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/Settings"
+        android:title="Settings"
+        android:icon="@drawable/sharp_settings_24"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/Payments"
+        android:title="Payments"
+        android:icon="@drawable/payment"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+
+    <item android:id="@+id/SignOut"
+        android:title="SignOut"
+        android:icon="@drawable/logout_ic"
+        android:orderInCategory="100"
+        app:showAsAction="never">
+
+    </item>
+</group>
+
+</menu>
