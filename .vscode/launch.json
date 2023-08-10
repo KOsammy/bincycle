@@ -1,0 +1,34 @@
+{
+
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "android",
+            "request": "launch",
+            "name": "Bincycle",
+            "appSrcRoot": "${workspaceRoot}/app/src/main",
+            "apkFile": "${workspaceRoot}/app/build/outputs/apk/debug/app-debug.apk",
+            "adbPort": 5037,
+            "adbSocket": "localhost:5037",
+            "autoStartADB": true,
+            "staleBuild": "warn",
+            "targetDevice": "${command:PickAndroidDevice}",
+            "manifestFile": "${workspaceRoot}/app/src/main/AndroidManifest.xml",
+            "pmInstallArgs": [
+                "-r"
+            ],
+            "amStartArgs": [
+                "-D",
+                "--activity-brought-to-front",
+                "-a android.intent.action.MAIN",
+                "-c android.intent.category.LAUNCHER",
+                "-n package.name/launch.activity"
+            ],
+            "launchActivity": ".MainActivity",
+            "postLaunchPause": 1000,
+            "trace": false
+        }
+       
+    ]
+}

@@ -35,7 +35,10 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        //Hooks
+        // Initialize FirebaseAuth
+        mAuth = FirebaseAuth.getInstance();
+
+        // Hooks
         username = findViewById(R.id.username);
         phone = findViewById(R.id.phone);
         next = findViewById(R.id.Next_btn);
@@ -43,61 +46,67 @@ public class Dashboard extends AppCompatActivity {
         fullname = username.getText().toString();
         mobile = phone.getText().toString();
 
-        if(getSupportActionBar()!= null){
+        if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
 
-        next.setOnClickListener(view -> {
-            if (phone.getText().toString().trim().isEmpty()) {
-                Toast.makeText(Dashboard.this, "Enter Your phone Number", Toast.LENGTH_SHORT).show();
-            } else if (username.getText().toString().trim().isEmpty()) {
-                Toast.makeText(Dashboard.this, "Enter Your Username", Toast.LENGTH_SHORT).show();
-                return;
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (phone.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(Dashboard.this, "Enter Your phone Number", Toast.LENGTH_SHORT).show();
+                } else if (username.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(Dashboard.this, "Enter Your Username", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // Check for correct phone format
+                else if (!isValidPhoneNumber(phone.getText().toString())) {
+                    Toast.makeText(Dashboard.this, "Phone is valid", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                progressBar.setVisibility(View.VISIBLE);
+                next.setVisibility(View.INVISIBLE);
+
+                PhoneAuthOptions options = PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber("+233" + phone.getText().toString())
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(Dashboard.this)
+                        .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+                            @Override
+                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                                progressBar.setVisibility(View.GONE);
+                                next.setVisibility(View.VISIBLE);
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NonNull FirebaseException e) {
+                                progressBar.setVisibility(View.GONE);
+                                next.setVisibility(View.VISIBLE);
+                                Toast.makeText(Dashboard.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onCodeSent(@NonNull String verificationId, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                progressBar.setVisibility(View.GONE);
+                                next.setVisibility(View.VISIBLE);
+                                Intent intent = new Intent(Dashboard.this, OtpAuthentication.class);
+                                intent.putExtra("username", username.getText().toString());
+                                intent.putExtra("phone", phone.getText().toString());
+                                intent.putExtra("verificationId", verificationId);
+                                startActivity(intent);
+                            }
+                        })
+                        .build();
+
+                PhoneAuthProvider.verifyPhoneNumber(options);
             }
-            // check for correct phone format
-            else if (!isValidPhoneNumber(phone.getText().toString())) {
-                Toast.makeText(Dashboard.this, "Phone is valid",Toast.LENGTH_SHORT).show();
-                return;
-            }
-            progressBar.setVisibility(View.VISIBLE);
-            next.setVisibility(View.INVISIBLE);
-
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                    "+233" + phone.getText().toString(),
-                    60,
-                    TimeUnit.SECONDS,
-                    Dashboard.this,
-                    new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-                        @Override
-                        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                            progressBar.setVisibility(View.GONE);
-                            next.setVisibility(View.VISIBLE);
-                        }
-
-                        @Override
-                        public void onVerificationFailed(@NonNull FirebaseException e) {
-                            progressBar.setVisibility(View.GONE);
-                            next.setVisibility(View.VISIBLE);
-                            Toast.makeText(Dashboard.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-
-                        @Override
-                        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                            progressBar.setVisibility(View.GONE);
-                            next.setVisibility(View.VISIBLE);
-                            Intent intent = new Intent(Dashboard.this, OtpAuthentication.class);
-                            intent.putExtra("username", username.getText().toString());
-                            intent.putExtra("phone", phone.getText().toString());
-                            intent.putExtra("otp",s);
-                            startActivity(intent);
-                        }
-                    });
         });
     }
+
     private boolean isValidPhoneNumber(String phoneNumber) {
         // Regular expression to check if the phone number is in the format +1234567890
-        return phoneNumber.matches("[0-9]{10}");
+        return phoneNumber.matches("[0-9]{9}");
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential firebaseOtp) {
@@ -116,7 +125,4 @@ public class Dashboard extends AppCompatActivity {
                     }
                 });
     }
-
 }
-
-

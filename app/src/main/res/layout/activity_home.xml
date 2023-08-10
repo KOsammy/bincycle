@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,11 +13,6 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:elevation="4dp"
-            android:background="@color/purple_500"
+            android:background="@color/purple_700"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
@@ -39,7 +33,7 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight = "35" />
+            android:layout_weight = "3" />
 
 
         <LinearLayout
@@ -48,7 +42,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="0.005">
 
 
 
@@ -80,7 +74,7 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@color/white">
+                android:background="@drawable/grad2_bg">
 
                 <android.widget.LinearLayout
                     android:id="@+id/select1"
@@ -321,12 +315,6 @@
                         android:orientation="horizontal"
                         android:background="#f6f6f6">
 
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/baseline_account_circle_24">
-
-                        </de.hdodenhof.circleimageview.CircleImageView>
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
                         <androidx.appcompat.widget.AppCompatButton
