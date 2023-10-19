@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/arrow_back"
-                android:background="@color/teal_700"
+                android:background="@color/purple_700"
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="10dp"
                 android:padding="10dp"/>
@@ -215,7 +215,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textColor="@color/teal_700"
+            android:textColor="@color/purple_700"
             android:text="@string/re_send_opt"
             android:textStyle="bold"
             android:textSize="15sp">

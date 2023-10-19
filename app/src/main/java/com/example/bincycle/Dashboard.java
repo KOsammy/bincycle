@@ -2,6 +2,7 @@ package com.example.bincycle;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,6 +65,7 @@ public class Dashboard extends AppCompatActivity {
                     Toast.makeText(Dashboard.this, "Phone is valid", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 progressBar.setVisibility(View.VISIBLE);
                 next.setVisibility(View.INVISIBLE);
 
@@ -84,6 +86,7 @@ public class Dashboard extends AppCompatActivity {
                                 progressBar.setVisibility(View.GONE);
                                 next.setVisibility(View.VISIBLE);
                                 Toast.makeText(Dashboard.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Log.e("Dashboard", e.getMessage());
                             }
 
                             @Override
@@ -102,8 +105,8 @@ public class Dashboard extends AppCompatActivity {
                 PhoneAuthProvider.verifyPhoneNumber(options);
             }
         });
-    }
 
+    }
     private boolean isValidPhoneNumber(String phoneNumber) {
         // Regular expression to check if the phone number is in the format +1234567890
         return phoneNumber.matches("[0-9]{9}");

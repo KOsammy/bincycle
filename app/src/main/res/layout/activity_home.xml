@@ -25,7 +25,16 @@
             android:elevation="4dp"
             android:background="@color/purple_700"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Bincycle"/>
+
+        </androidx.appcompat.widget.Toolbar>
 
 
         <androidx.fragment.app.FragmentContainerView
@@ -33,7 +42,8 @@
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight = "3" />
+            android:layout_weight = "3"
+            tools:layout="@layout/placeholder"/>
 
 
         <LinearLayout
@@ -56,17 +66,16 @@
                 android:visibility="visible">
 
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/select_bin_size"
-                    android:textStyle="normal"
                     android:layout_marginTop="10dp"
                     android:fontFamily="sans-serif-condensed"
+                    android:text="@string/select_bin_size"
+                    android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="15sp"
-                    android:textAlignment="center"/>
+                    android:textStyle="normal" />
 
 
                 <LinearLayout
@@ -308,6 +317,18 @@
                     android:background="@color/white"
                     android:layout_marginTop="10dp"
                     android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:padding="30dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textSize="20dp"
+                        android:text="">
+
+                    </TextView>
 
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="match_parent"
